@@ -30,7 +30,11 @@ cd your-app-name
 Install dependencies
 
 ```sh
+# yarn
 yarn install # or just yarn
+
+# npm
+npm install # or npm i
 ```
 
 Create environment variable files `.env` based on [.env.example](./.env.example) on project root folder
@@ -52,7 +56,11 @@ copy .env.example .env
 Running the bot
 
 ```sh
+# yarn
 yarn dev # or cross-env NODE_ENV=development env-cmd -f .env tsnd --transpile-only --respawn --no-notify --ignore-watch node_modules ./src/index.ts
+
+# npm
+npm run dev
 ```
 
 > ⚠ Note that the loaded environment variables file is `.env`
@@ -85,7 +93,11 @@ docker compose up -d
 Directly
 
 ```sh
+# yarn
 yarn deploy
+
+# npm
+npm run deploy
 ```
 
 > ⚠ Note that the loaded environment variables file is `.env`
@@ -93,13 +105,21 @@ yarn deploy
 Manually
 
 ```sh
+# yarn
 yarn build
+
+# npm
+npm run build
 ```
 
 Startup bot
 
 ```sh
+# yarn
 yarn start # or cross-env NODE_ENV=production env-cmd -f .env node ./dist/index.js
+
+# npm
+npm run start
 ```
 
 > ⚠ Note that the loaded environment variables file is `.env`
