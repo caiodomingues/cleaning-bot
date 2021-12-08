@@ -1,13 +1,29 @@
-# discord-bot-typescript-boilerplate
+# Cleaning Bot
 
-🤖 NODE.TS - Start your next discord bot project in seconds.
+🤖 This bot is designed to clean up the chat with some predefined rules.
+
+## Rules
+
+### Defining a specific channel
+
+Add `SPECIFIC_CHANNEL` to your `.env` file, where the value is the ID of the channel you want to clean.
+
+- The bot will only clean up the channel you specify.
+- If you don't specify a channel, the bot will clean up the current channel.
+
+### Defining a specific user (any user/bot)
+
+Add `SPECIFIC_USER` to your `.env` file, where the value is the ID of the user you want to clean.
+
+- The bot will only clean up the user you specify.
+- If you don't specify a user, the bot will clean up **ANY** user.
 
 ## Installation
 
 Clone project
 
-```
-git clone git@github.com:BrunoS3D/discord-bot-typescript-boilerplate.git your-app-name
+```sh
+git clone git@github.com:caiodomingues/cleaning-bot.git your-app-name
 cd your-app-name
 ```
 
@@ -17,18 +33,16 @@ Install dependencies
 yarn install # or just yarn
 ```
 
-Create environment variable files `.env` and `.env.dev` based on [.env.example](./.env.example) on project root folder
+Create environment variable files `.env` based on [.env.example](./.env.example) on project root folder
 
-```bash
+```sh
 # linux / macOS
 cp .env.example .env
-cp .env.example .env.dev
 ```
 
-```bash
+```sh
 # windows
 copy .env.example .env
-copy .env.example .env.dev
 ```
 
 ## Running on development environment
@@ -38,10 +52,10 @@ copy .env.example .env.dev
 Running the bot
 
 ```sh
-yarn dev # or cross-env NODE_ENV=development env-cmd -f .env.dev tsnd --transpile-only --respawn --no-notify --ignore-watch node_modules ./src/index.ts
+yarn dev # or cross-env NODE_ENV=development env-cmd -f .env tsnd --transpile-only --respawn --no-notify --ignore-watch node_modules ./src/index.ts
 ```
 
-> ⚠ Note that the loaded environment variables file is `.env.dev`
+> ⚠ Note that the loaded environment variables file is `.env`
 
 ## Running on production environment
 
@@ -49,7 +63,7 @@ yarn dev # or cross-env NODE_ENV=development env-cmd -f .env.dev tsnd --transpil
 
 > ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
 
-```bash
+```sh
 docker build -t your-app-name .
 docker run -it --rm -e DISCORD_TOKEN="YOUR TOKEN HERE" --name your-app-name your-app-name
 ```
@@ -58,7 +72,7 @@ docker run -it --rm -e DISCORD_TOKEN="YOUR TOKEN HERE" --name your-app-name your
 
 > ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
 
-```bash
+```sh
 docker compose up -d
 ```
 
@@ -70,7 +84,7 @@ docker compose up -d
 
 Directly
 
-```bash
+```sh
 yarn deploy
 ```
 
@@ -78,13 +92,13 @@ yarn deploy
 
 Manually
 
-```bash
+```sh
 yarn build
 ```
 
 Startup bot
 
-```bash
+```sh
 yarn start # or cross-env NODE_ENV=production env-cmd -f .env node ./dist/index.js
 ```
 

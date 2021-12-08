@@ -1,10 +1,19 @@
-import { ClientOptions, Intents } from 'discord.js';
+import { ClientOptions, Intents } from "discord.js";
 
 export default {
-    bot: {
-        token: process.env.DISCORD_TOKEN,
+  prefix: process.env.COMMAND_PREFIX,
+  channel: process.env.SPECIFIC_CHANNEL,
+  user: process.env.SPECIFIC_USER,
+  bot: {
+    token: process.env.DISCORD_TOKEN,
+  },
+  client: {
+    ws: {
+      intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES,
+        Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+      ],
     },
-    client: {
-        ws: { intents: Intents.ALL }
-    } as ClientOptions
-}
+  } as ClientOptions,
+};
